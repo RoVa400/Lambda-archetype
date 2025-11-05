@@ -1,0 +1,26 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: ${artifactIdCapitalized} Lambda (${httpMethod})
+
+Globals:
+  Function:
+    Runtime: java21
+    MemorySize: 128
+    Timeout: 10
+
+Resources:
+  HelloWorldFunction:
+    Type: AWS::Serverless::Function
+    Metadata:
+      BuildMethod: makefile
+    Properties:
+      FunctionName: ${artifactIdCapitalized}Function
+      CodeUri: target/${artifactId}-${version}.jar
+      Handler: ${package}.${artifactIdCapitalized}Handler::handleRequest
+      Architectures:
+        - x86_64
+      FunctionUrlConfig:
+        AuthType: NONE
+        Cors:
+          AllowOrigins: ["*"]
+          AllowMethods: ["${httpMethod}"]
