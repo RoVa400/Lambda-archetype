@@ -7,11 +7,11 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 import java.util.Map;
 
-public class ${artifactId}HandlerTest {
+public class ${artifactIdCapitalized}HandlerTest {
 
     @Test
     public void testHandleRequest() {
-        ${artifactId}Handler handler = new ${artifactId}Handler();
+        ${artifactIdCapitalized}Handler handler = new ${artifactIdCapitalized}Handler();
         Map<String, Object> response = handler.handleRequest(Map.of(), null);
 
         assertNotNull(response);

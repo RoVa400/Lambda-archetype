@@ -15,7 +15,7 @@ Resources:
       BuildMethod: makefile
     Properties:
       FunctionName: ${artifactIdCapitalized}Function
-      CodeUri: target/${artifactId}-${version}.jar
+      CodeUri: target/${artifactId}-${VERSION}.jar
       Handler: ${package}.${artifactIdCapitalized}Handler::handleRequest
       Architectures:
         - x86_64
